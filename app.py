@@ -15,13 +15,6 @@ conn = http.client.HTTPSConnection("sandbox.capitalone.co.uk")
 accountID = 31540673
 
 
-def add_months(sourcedate, months):
-     month = sourcedate.month - 1 + months
-     year = sourcedate.year + month / 12
-     month = month % 12 + 1
-     day = min(sourcedate.day,calendar.monthrange(year,month)[1])
-     return datetime.date(year,month,day)
-
 @app.route('/')
 def start():
     return render_template('index.html')
@@ -58,6 +51,9 @@ def dashboard():
         eligbleTransactions = []
         tmp = (json.loads(data)['Transactions'])
 
+        now = datetime.date.today()
+
+        print(now)
         '''
         now = datetime.date.today()
         sixmonthsago = add_months(now, -6)
