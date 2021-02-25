@@ -9,6 +9,10 @@ app =  Flask(__name__)
 def start():
     return render_template('index.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 # Requests
 @app.route('/submit', methods=('POST',))
 def submit():
