@@ -61,8 +61,6 @@
           </div>
           <div class="right">
 
-
-
             <div id="resultComp"> </div>
 
             <script type="text/javascript">
@@ -72,10 +70,10 @@
                 console.log(rdata)
                 var response = ''
                 if (rdata === 'True') {
-                  responseleft = '<div> <h2 class="desc"> Congratulations! You have earned yourself a free prize</h2> <h2 class="desc"> You have won a free coffee from 200 Degrees</h2>'
+                  responseleft = '<div> <h2 class="desc"> Congratulations! You have earned yourself a free prize</h2> <h2 class="desc"> You have won a free coffee from 200 Degrees</h2> <button style="background-color: #1d2025; height:10%; font-size: 32px;"> Click here to claim your reward </button>'
                   response = '<img src="../static/imgs/coffee.png" > </div>'
                 } else { 
-                  responseleft = '<div> <h2 class="desc"> BOOOOO</h2> <h2 class="desc"> You are not eligible</h2> '
+                  responseleft = '<div> <h2 class="desc"> Sorry! You are not eligible for a prize</h2> <h2 class="desc"> Here is how you can be better... </h2> <button style="background-color: #1d2025; height:10%; font-size: 32px;"> Improve my credit score </button>'
                   response = '<img src="../static/imgs/sad.png" /></div>'
                 }
                
