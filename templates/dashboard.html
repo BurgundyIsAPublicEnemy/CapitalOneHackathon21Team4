@@ -16,6 +16,30 @@
   <title>CapOne Rewards ⭐</title>
 </head>
 
+<style>
+  h1 {
+    color: blue;
+    font-family: verdana;
+    font-size: 300%;
+  }
+
+  p {
+    color: red;
+    font-family: courier;
+    font-size: 160%;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: left;
+    border-spacing: 5px;
+  }
+</style>
+
 <body class="joining">
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root">
@@ -33,15 +57,36 @@
         </div>
         <main>
           <div class="left">
-            <ul>
-              {{data}}
-              </ul>
+            <div id="resultCompLeft"> </div>
           </div>
           <div class="right">
-            
 
 
-            
+
+            <div id="resultComp"> </div>
+
+            <script type="text/javascript">
+
+              function x() {
+                var rdata = '{{ data }}'
+                console.log(rdata)
+                var response = ''
+                if (rdata === 'True') {
+                  responseleft = '<div> <h2 class="desc"> Congratulations! You have earned yourself a free prize</h2> <h2 class="desc"> You have won a free coffee from 200 Degrees</h2>'
+                  response = '<img src="../static/imgs/coffee.png" > </div>'
+                } else { 
+                  responseleft = '<div> <h2 class="desc"> BOOOOO</h2> <h2 class="desc"> You are not eligible</h2> '
+                  response = '<img src="../static/imgs/sad.png" /></div>'
+                }
+               
+                document.getElementById("resultComp").innerHTML += response;
+                document.getElementById("resultCompLeft").innerHTML += responseleft;
+
+              }
+
+
+              x();
+            </script>
           </div>
         </main>
       </header>
