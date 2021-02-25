@@ -33,7 +33,11 @@
         </div>
         <main>
           <div class="left">
-            <p> YOu are in so far </p>
+            <ul>
+              {% for item in data %}
+                  <li>{{item}}</li>
+              {% endfor %}
+              </ul>
           </div>
           <div class="right">
             <h1 class="desc">Love your card? You should be rewarded</h1>

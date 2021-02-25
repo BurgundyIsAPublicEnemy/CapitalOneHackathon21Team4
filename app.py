@@ -31,7 +31,7 @@ def dashboard():
 
 
 
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', data="OK")
 
 # Requests
 @app.route('/submit', methods=('POST',))
