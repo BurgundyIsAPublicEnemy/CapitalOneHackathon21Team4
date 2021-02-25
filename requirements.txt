@@ -1,0 +1,2 @@
+dotenv # To read data from env files.
+flask # I don't know what this does.

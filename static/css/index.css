@@ -1,0 +1,691 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1d2025;
+}
+
+* {
+  scrollbar-color: #31353f #1d2025;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1d2025;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #31353f;
+}
+
+.App-header .back {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+}
+
+.App-header .back .wave {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transform: scale(5);
+}
+
+:not(.proceedButton) {
+  scrollbar-width: thin;
+  color: #fff;
+  text-decoration: none;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.join {
+  cursor: pointer;
+}
+
+.proceedButton {
+  filter: brightness(1.1);
+  background: #282c34;
+  position: absolute;
+  padding: 5px 15px;
+  min-width: 150px;
+  min-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 50px;
+  transition: .5s ease;
+}
+
+.proceedButton .proceedButton-btns {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+}
+
+.proceedButton:hover {
+  box-shadow: 0 0 25px 0 #0000001a;
+  filter: brightness(1.2);
+}
+
+.proceedButton .proceedButton-arrow {
+  transform: translateX(10px);
+  position: relative;
+}
+
+.proceedButton .proceedButton-arrow .svg {
+  width: 20px;
+  position: relative;
+  top: -3px;
+}
+
+.proceedButton .proceedButton-text {
+  font-size: 23px;
+  position: relative;
+  font-weight: 500;
+  transform: translateY(-3px);
+}
+
+.proceedButton .proceedButton-text::before {
+  content: "See what rewards you are eligbile";
+}
+
+.proceedButton.joining .proceedButton-text::before {
+  content: "Scroll";
+}
+
+.proceedButton.joining .proceedButton-arrow .svg {
+  transform: rotate(90deg);
+}
+
+.proceedButton.joining .proceedButton-text::after {
+  transform: rotate(90deg);
+}
+
+.proceedButton * {
+  pointer-events: none;
+}
+
+.proceedButton {
+  border-radius: 5px;
+  transition: 1s ease;
+}
+
+@keyframes lRAn {
+  from {
+    opacity: 0;
+  }
+}
+
+.selectButton p {
+  font-size: 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.selectButton .item {
+  display: inline-flex;
+}
+
+.selectButton .item~.item {
+  margin: 0 10px;
+}
+
+.selectButton::before {
+  content: '';
+  background: linear-gradient(to right, #464c58, rgba(70, 76, 88, 0));
+  height: 1px;
+  width: 90%;
+  position: absolute;
+  left: 0;
+  transform: translateY(-14px);
+}
+
+.selectButton {
+  font-size: 20px;
+  padding: 10px;
+  pointer-events: none;
+}
+
+.selectButton:not(.chosen):not(.own) {
+  cursor: pointer;
+}
+
+.selectButton {
+  pointer-events: all;
+}
+
+.selectButton .item.time::after {
+  content: 'Click to choose';
+  opacity: .4;
+  margin-left: 10px;
+  position: relative;
+}
+
+.selectButton.chosen .item.time::after {
+  content: 'Chosen';
+  opacity: 1;
+  margin-left: 10px;
+  position: relative;
+  color: #ffc83d;
+}
+
+.own>.item {
+  opacity: .5;
+  font-size: 16px;
+}
+
+.own>.item~input {
+  background: inherit;
+  padding: 5px 1px;
+  padding-left: 1px;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: #4b4e5585;
+  padding-left: 8px;
+  border: 1px solid #464c58;
+  /* opacity: .5; */
+}
+
+.own>.item~input:hover, .own.edited>.item~input {
+  opacity: 1;
+  color: #ced3de85;
+  transition: .5s ease;
+}
+
+.own>.item~input:focus {
+  outline: none;
+}
+
+.customSave {
+  position: absolute;
+  font-size: 15px;
+  background: #2b2e34;
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transform: translateY(5px);
+}
+
+.own:not(.edited) .step, .own:not(.edited) .customSave{
+  display: none;
+}
+
+.selectButton:not(.chosen) .item.time::after {
+  opacity: 1;
+  color: #ffc83d;
+}
+
+.selectButton .item.members .joins-num {
+  color: #8d9199;
+  font-size: 18px;
+  position: relative;
+  top: -1px;
+}
+
+.selectButton .item.members .joins {
+  color: #8d9199;
+  font-size: 15px;
+  position: relative;
+  top: -2px;
+  padding-left: 5px;
+}
+
+.selectButton .item.members {
+  background-color: #393c4285;
+  padding: 1px 10px;
+  border-radius: 100px;
+  float: right;
+}
+
+.selectButton::after {
+  content: '';
+  background: linear-gradient(to right, #464c58, rgba(70, 76, 88, 0));
+  height: 1px;
+  width: 90%;
+  position: absolute;
+  left: 0;
+  transform: translateY(33px);
+}
+
+.selectButton:last-of-type::after {
+  transform: translateY(45px);
+}
+
+.selectButton+.selectButton::before {
+  background: none;
+}
+
+.selectButton.own.edited:last-of-type::after {
+  transform: translateY(80px);
+}
+
+.selectButton .email-box {
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.selectButton .email-text {
+  font-size: 19px;
+  color: #8d9199;
+  color: #dadfea;
+}
+
+.selectButton .email-footer {
+  font-size: 15px;
+  color: #fbfbfba1;
+  padding-top: 3px;
+}
+
+.selectButton .email-input, .selectButton .email-name-input {
+  margin-top: 20px;
+  background-color: #393c4285;
+  padding: 8px 15px;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+}
+
+.selectButton .email-submit {
+  margin-top: 20px;
+}
+
+.selectButton .email-submit input {
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2b2e34;
+  cursor: pointer;
+}
+
+.selectButton:not(.chosen) .email-box {
+  display: none;
+}
+
+.bottom.choseTime .selectButton.chosen~.selectButton {
+  top: 22px;
+  position: relative;
+  left: 0;
+}
+
+.selectButton.bottom-item.chosen+.bottom-item::before {
+  display: none;
+}
+
+.logo-left a {
+  transition: .5s ease;
+  opacity: 1;
+  animation: lRAn 1s ease;
+  cursor: pointer;
+  display: block;
+  font-size: 1.8em;
+  margin-block-start: .5em;
+  margin-block-end: .67em;
+  margin-inline-start: 20px;
+  margin-inline-end: 0;
+  font-weight: 700;
+}
+
+.text-right .home {
+  color: #c7d3ff;
+}
+
+.logo-left a:hover, .text-right a:hover {
+  color: #ffc83d;
+}
+
+.logo-left {
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+}
+
+.text-right {
+  position: absolute;
+  z-index: 2;
+  right: 10px;
+  margin: 15px 10px;
+  font-size: 20px;
+}
+
+.text-right a~a {
+  margin-left: 50px;
+}
+
+.title {
+  color: #ffc83d;
+}
+
+.bottom .title {
+  margin-block-start: 0;
+  margin-block-end: 1em;
+}
+
+.bottom .title::before {
+  content: "Available:";
+}
+
+.text {
+  color: #d0d0d0;
+}
+
+@keyframes rightAn {
+  from {
+    opacity: 0;
+    transform: translateY(50px)
+  }
+}
+
+.right {
+  animation: rightAn 1s ease;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.line-under {
+  text-decoration: underline;
+}
+
+.App-header main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  top: 100px;
+}
+
+@keyframes leftAn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px)
+  }
+}
+
+.App-header main .left {
+  animation: leftAn 1s ease;
+  width: 85%;
+  position: relative;
+  top: 11%;
+  margin: auto;
+}
+
+.App-header main .left .vid-chat {
+  width: 85%;
+  position: relative;
+  top: 11%;
+  opacity: .9;
+}
+
+body:not(.joining) .App-secondheader {
+  display: none;
+}
+
+.App-header, .App-secondheader {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  color: #fff;
+}
+
+.App-secondheader {
+  background-color: #1d2025;
+  /* background-image: url(/static/imgs/wave2.svg); */
+  background-size: cover;
+}
+
+.App-secondheader .bottom {
+  padding: 50px;
+  position: relative;
+  transform: translateY(50%);
+}
+
+.App-secondheader .bottom.choseTime {
+  padding: 50px;
+  position: relative;
+  transform: translateY(35%);
+}
+
+.App-secondheader .bottom .zoom-link a {
+  color: #add8e6;
+  overflow-wrap: break-word;
+}
+
+.App-secondheader .bottom:not(.chosen) .zoom-link {
+  display: none;
+}
+
+.App-secondheader .bottom.chosen>div:not(.zoom-link) {
+  display: none;
+}
+
+.App-secondheader .bottom.chosen .title::after {
+  content: "Zoom link:";
+  color: #ffffff;
+  white-space: pre;
+  display: table;
+  font-size: 70%;
+  font-weight: 500;
+}
+
+.bottom.chosen .title::before {
+  content: "Come on in!";
+}
+
+.App-secondheader .bottom.nothing .bottom-item:not(.nothing-title) {
+  display: none;
+}
+
+.App-secondheader .bottom:not(.nothing) .bottom-item.nothing-title {
+  display: none;
+}
+
+.App-secondheader .desc2 {
+  font-size: 1.5em;
+  margin-block-start: .67em;
+  margin-block-end: .67em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: 700;
+}
+
+.nothing-title {
+  font-size: 1em;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 300px);
+}
+
+.steps {
+  display: none;
+}
+
+.steps .step {
+  font-size: 12px;
+  opacity: .5;
+  display: inline;
+}
+
+.step~.step {
+  margin-left: 13px;
+}
+
+.steps .step:first-of-type, .step.active {
+  opacity: 1;
+}
+
+.steps .step:not(:last-of-type):after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 18px;
+  background: #4f545e;
+  transform: rotate(200deg) translateY(-7px);
+  margin-left: 5.5px;
+}
+
+.capacity {
+  transform: translateY(15px);
+  background: linear-gradient(45deg, #2b2e34, #0000);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.capacity .inner>div:last-of-type {
+  display: inline-flex;
+  margin-top: 10px;
+}
+
+.own:not(.edited) .capacity, .own:not(.showCapacity) .capacity{
+  display: none;
+}
+
+.own.showCapacity .customSave {
+  transform: translateY(115px);
+}
+
+@media screen and (max-width: 1240px) {
+  .App-header main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .right .title {
+    font-size: 1em;
+  }
+  .right .text {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .right .desc {
+    font-size: 25px;
+  }
+  .right .title {
+    font-size: 15px;
+  }
+  .right .text {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .App-header main {
+    display: block;
+  }
+  .App-header main .left .vid-chat {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .right {
+    padding: 50px;
+  }
+  .proceedButton {
+    margin-bottom: 25px;
+  }
+  .App-header main .left {
+    margin-top: 10px;
+  }
+  .App-header main .left .vid-chat {
+    width: 100%;
+  }
+  .proceedButton .proceedButton-arrow {
+    display: none;
+  }
+  .proceedButton .proceedButton-text::after {
+    content: "➜";
+    position: absolute;
+    margin-left: 6px;
+    opacity: .9;
+  }
+  .proceedButton .proceedButton-text {
+    right: 10px;
+  }
+  .proceedButton {
+    margin-top: 5px;
+    min-width: 160px;
+  }
+  .bottom.chosen .title::before {
+    content: "Come on in!";
+    font-size: 1.40em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .text-right .home {
+    display: none;
+  }
+  .proceedButton .proceedButton-text {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .proceedButton .proceedButton-arrow {
+    display: none;
+  }
+  .proceedButton .proceedButton-text::before {
+    content: "Join";
+  }
+  .proceedButton {
+    padding: 0;
+  }
+  .proceedButton {
+    background: #1d2025;
+    margin-top: 5px;
+    min-width: 130px;
+  }
+  .right .text {
+    font-size: 23px;
+  }
+  .logo-left a {
+    font-size: 1.5em;
+    margin-inline-start: 40px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .own>.item~input {
+    margin: 5px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .selectButton .item.time::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .right, .App-secondheader .bottom {
+    padding: 50px 20px;
+  }
+  .logo-left a {
+    margin-inline-start: 0;
+  }
+  .logo-left a {
+    font-size: 1.3em;
+  }
+  .text-right .join {
+    color: #ffc83d;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .text-right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 265px) {
+  .selectButton .item.members {
+    display: none;
+  }
+}
